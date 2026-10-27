@@ -8,19 +8,18 @@
 #define LED3 GPIO_ODR_ODR8
 
 
+void Int_Led_Init(void);
 
-void LED_Init(void);
+void Int_Led_OffAll(void);
 
-void LED_OffAll(void);
+void Int_Led_Off(uint32_t i);
 
-void LED_Off(uint32_t i);
+void Int_Led_On(uint32_t i);
 
-void LED_On(uint32_t i);
-
-void LED_Run(void);
+void Int_Led_Run(void);
 
 
-void LED_toggle(uint32_t i);
+void Int_Led_toggle(uint32_t i);
 
 #endif /* _LED_H */
 

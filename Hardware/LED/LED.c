@@ -3,12 +3,11 @@
 uint32_t leds[3] = {
     LED1, LED2, LED3};
 
-void LED_OffAll()
+void Int_Led_OffAll(void)
 {
     GPIOA->ODR |= (LED1 | LED2 | LED3);
-   
 }
-void LED_Init()
+void Int_Led_Init(void)
 {
     // 1.打开rcc apb2enr pa使能
     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
@@ -19,15 +18,15 @@ void LED_Init()
     // cnf 00 推挽   mode 11; 高速
     GPIOA->CRL |= (GPIO_CRL_MODE0 | GPIO_CRL_MODE1);
     GPIOA->CRH |= GPIO_CRH_MODE8;
-    LED_OffAll();
+    Int_Led_OffAll();
 }
 
-void LED_Off(uint32_t i)
+void Int_Led_Off(uint32_t i)
 {
     GPIOA->ODR |= leds[i];
 }
 
-void LED_On(uint32_t i)
+void Int_Led_On(uint32_t i)
 {
     GPIOA->ODR &= ~leds[i];
 }
@@ -38,20 +37,20 @@ void delay(){
         }
     }
 }
-void LED_Run()
+void Int_Led_Run(void)
 {
     uint32_t i = 0;
     while (1)
     {
-        LED_On(i);
+        Int_Led_On(i);
         delay();
-        LED_Off(i);
+        Int_Led_Off(i);
         i++;
         if(i>2)i=0;
     }
 }
 
-void LED_toggle(uint32_t i){
+void Int_Led_toggle(uint32_t i){
     GPIOA->ODR ^= leds[i];
 }
 
