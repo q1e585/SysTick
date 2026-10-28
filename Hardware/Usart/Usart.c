@@ -103,9 +103,11 @@ void USART1_IRQHandler(void)
 }
 
 
-int fputc(int c, FILE *file)
+int fputc(int ch, FILE *f)
 {
-     Dri_Usart_SendChr(c);
-    return c;
+    
+    Dri_Usart_SendChr((uint8_t)ch);
+    
+    return ch;
 }
 

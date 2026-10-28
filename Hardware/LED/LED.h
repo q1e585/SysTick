@@ -16,7 +16,7 @@ void Int_Led_Off(uint32_t i);
 
 void Int_Led_On(uint32_t i);
 
-void Int_Led_Run(void);
+void Int_Led_Run(uint8_t speed);
 
 
 void Int_Led_toggle(uint32_t i);

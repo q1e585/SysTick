@@ -5,11 +5,11 @@
 
 void Int_Eeprom_Init(void);
 
-void Int_Eeprom_Writebyte( uint8_t byte[], uint8_t address,uint8_t len);
+void Int_Eeprom_Writebytes( uint8_t *byte, uint8_t address,uint8_t len);
+void Int_Eeprom_Readebytes(uint8_t byte[], uint8_t address,uint8_t len);
 
-
-void Int_Eeprom_Readebyte(uint8_t byte[], uint8_t address,uint8_t len);
-
+void Int_Eeprom_Writebyte(uint8_t byte ,uint8_t address);
+uint8_t Int_Eeprom_Readbyte(uint8_t address);
 
 
 

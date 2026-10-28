@@ -1,4 +1,6 @@
 #include "LED.h"
+#include "delay.h"
+
 
 uint32_t leds[3] = {
     LED1, LED2, LED3};
@@ -30,24 +32,15 @@ void Int_Led_On(uint32_t i)
 {
     GPIOA->ODR &= ~leds[i];
 }
-void delay(){
-    for(uint32_t i=0;i<=100000;i++){
-        for(uint8_t j=0;j<100;j++){
 
-        }
-    }
-}
-void Int_Led_Run(void)
+void Int_Led_Run(uint8_t speed)
 {
-    uint32_t i = 0;
-    while (1)
-    {
-        Int_Led_On(i);
-        delay();
-        Int_Led_Off(i);
-        i++;
-        if(i>2)i=0;
-    }
+   static  uint8_t i =0;
+   Int_Led_On(i);
+   Delay_ms(speed*10);
+   Int_Led_Off(i);
+   i++;
+   if(i==3) i=0;
 }
 
 void Int_Led_toggle(uint32_t i){

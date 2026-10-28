@@ -1,6 +1,6 @@
 #include "systick.h"
 
-// static Systick_cback  FunPtr_Arr[Max_callback];
+
 
 void Dir_SysTick_Init(void)
 {
@@ -24,7 +24,7 @@ void SysTick_Handler(void)
 {
     static uint16_t cnt = 0;
     cnt++;
-    if (cnt > 1000)
+    if (cnt > 1)
     {
         cnt = 0;
         Systick_CBack();
